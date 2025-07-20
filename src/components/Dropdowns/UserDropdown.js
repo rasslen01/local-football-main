@@ -53,32 +53,32 @@ const UserDropdown = () => {
           Action
         </a>
         <a
-          href="#pablo"
+          href="/my-account"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
           onClick={(e) => e.preventDefault()}
         >
-          Another action
+          My account 
         </a>
         <a
-          href="#pablo"
+          href="/settings"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
           onClick={(e) => e.preventDefault()}
         >
-          Something else here
+          Settings
         </a>
         <div className="h-0 my-2 border border-solid border-blueGray-100" />
         <a
-          href="#pablo"
+          href="/Login"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
           onClick={(e) => e.preventDefault()}
         >
-          Seprated link
+          Log out
         </a>
       </div>
     </>
