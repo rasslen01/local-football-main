@@ -1,88 +1,60 @@
-import React from "react";
-import { createPopper } from "@popperjs/core";
+import React, { useState, useRef, useEffect } from "react";
 
-const UserDropdown = () => {
-  // dropdown props
-  const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
-  const btnDropdownRef = React.createRef();
-  const popoverDropdownRef = React.createRef();
-  const openDropdownPopover = () => {
-    createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
-      placement: "bottom-start",
-    });
-    setDropdownPopoverShow(true);
-  };
-  const closeDropdownPopover = () => {
-    setDropdownPopoverShow(false);
-  };
+export default function DropdownSignUp() {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const btnRef = useRef();
+  const dropdownRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        !btnRef.current.contains(event.target)
+      ) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <>
-      <a
-        className="text-blueGray-500 block"
-        href="#pablo"
-        ref={btnDropdownRef}
-        onClick={(e) => {
-          e.preventDefault();
-          dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
-        }}
+    <div className="relative inline-block text-left">
+      <button
+        ref={btnRef}
+        onClick={() => setDropdownOpen(!dropdownOpen)}
+        className="bg-white text-blueGray-700 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150 flex items-center gap-2"
       >
-        <div className="items-center flex">
-          <span className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
-            <img
-              alt="..."
-              className="w-full rounded-full align-middle border-none shadow-lg"
-              src={require("assets/img/team-1-800x800.jpg").default}
-            />
-          </span>
-        </div>
-      </a>
-      <div
-        ref={popoverDropdownRef}
-        className={
-          (dropdownPopoverShow ? "block " : "hidden ") +
-          "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
-        }
-      >
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Action
-        </a>
-        <a
-          href="/my-account"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          My account 
-        </a>
-        <a
-          href="/settings"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Settings
-        </a>
-        <div className="h-0 my-2 border border-solid border-blueGray-100" />
-        <a
-          href="/Login"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Log out
-        </a>
-      </div>
-    </>
-  );
-};
+        <i className="fas fa-user-plus"></i> Sign Up
+      </button>
 
-export default UserDropdown;
+      {dropdownOpen && (
+        <div
+          ref={dropdownRef}
+          className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50"
+        >
+          <ul className="py-1 text-sm text-blueGray-700">
+            <li>
+              <a href="/signup/player" className="block px-4 py-2 hover:bg-gray-100">
+                Joueur
+              </a>
+            </li>
+            <li>
+              <a href="/signup/organizer" className="block px-4 py-2 hover:bg-gray-100">
+                Organisateur
+              </a>
+            </li>
+            <li>
+              <a href="/signup/visitor" className="block px-4 py-2 hover:bg-gray-100">
+                Visiteur
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}

@@ -117,7 +117,7 @@ export default function Landing() {
                 </p>
                 
                 <Link to="/" className="font-bold text-blueGray-700 mt-8">
-                  Check Notus React!
+                  Find and join your team
                 </Link>
               </div>
 

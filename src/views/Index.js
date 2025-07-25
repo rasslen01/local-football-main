@@ -17,7 +17,8 @@ export default function Index() {
                 Local Football Matchup.
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-               La Plateforme Locale de Matchs de Football est une application web/mobile innovante destinée à connecter les passionnés de football à l’échelle locale. Elle permet aux joueurs, organisateurs de matchs, gestionnaires de terrains et visiteurs de se rencontrer, organiser des matchs, réserver des terrains, et participer à des événements sportifs dans leur région.{" "}
+The Local Football Matchmaking Platform is an innovative web/mobile application designed to connect football enthusiasts at the local level. It enables players, match organizers, field managers, and visitors to connect, organize matches, book fields, and take part in sporting events within their region.
+
               
               </p>
               <div className="mt-12">
@@ -89,13 +90,11 @@ export default function Index() {
                     ></polygon>
                   </svg>
                   <h4 className="text-xl font-bold text-white">
-                    Great for your awesome project
-                  </h4>
+                       Good football starts here.
+                   </h4>
                   <p className="text-md font-light mt-2 text-white">
-                    Putting together a page has never been easier than matching
-                    together pre-made components. From landing pages
-                    presentation to login areas, you can easily customise and
-                    built your pages.
+                    Find local matches, book fields, and join real players near you.
+                       No leagues, no pressure — just the game you love
                   </p>
                 </blockquote>
               </div>
@@ -107,28 +106,29 @@ export default function Index() {
                   <div className="relative flex flex-col mt-4">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i className="fas fa-sitemap"></i>
+                        <i className="fas fa-users"></i>
+
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
-                        CSS Components
+                        Easy Matchmaking
                       </h6>
                       <p className="mb-4 text-blueGray-500">
-                        Notus React comes with a huge number of Fully Coded CSS
-                        components.
+                      Quickly find or create local football matches with players near you — no complicated setup.  
+                        .
                       </p>
                     </div>
                   </div>
                   <div className="relative flex flex-col min-w-0">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i className="fas fa-drafting-compass"></i>
+                        <i className="fas fa-calendar-check"></i>
+
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
-                        JavaScript Components
+                        Field Reservation System
                       </h6>
                       <p className="mb-4 text-blueGray-500">
-                        We also feature many dynamic components for React,
-                        NextJS, Vue and Angular.
+                        Book nearby football fields in just a few clicks. No calls, no hassle.
                       </p>
                     </div>
                   </div>
@@ -137,26 +137,28 @@ export default function Index() {
                   <div className="relative flex flex-col min-w-0 mt-4">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i className="fas fa-newspaper"></i>
+                        <i className="fas fa-user-friends"></i>
+
                       </div>
-                      <h6 className="text-xl mb-1 font-semibold">Pages</h6>
+                      <h6 className="text-xl mb-1 font-semibold">Player & Team Community</h6>
                       <p className="mb-4 text-blueGray-500">
-                        This extension also comes with 3 sample pages. They are
-                        fully coded so you can start working instantly.
+                        Connect with individual players or full teams, follow match history, and build your local football network.
                       </p>
                     </div>
                   </div>
                   <div className="relative flex flex-col min-w-0">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i className="fas fa-file-alt"></i>
+                        <i className="fas fa-bell"></i>
+
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
-                        Documentation
+                        Real-Time Updates
                       </h6>
                       <p className="mb-4 text-blueGray-500">
-                        Built by developers for developers. You will love how
-                        easy is to to work with Notus React.
+                        Stay informed with live match statuses, booking confirmations, and event notifications.
+
+
                       </p>
                     </div>
                   </div>
@@ -169,18 +171,18 @@ export default function Index() {
         <div className="container mx-auto overflow-hidden pb-20">
           <div className="flex flex-wrap items-center">
             <div className="w-full md:w-4/12 px-12 md:px-4 ml-auto mr-auto mt-48">
-              <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+              {/* <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
                 <i className="fas fa-sitemap text-xl"></i>
-              </div>
-              <h3 className="text-3xl mb-2 font-semibold leading-normal">
+              </div> */}
+              {/* <h3 className="text-3xl mb-2 font-semibold leading-normal">
                 CSS Components
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
                 Every element that you need in a product comes built in as a
                 component. All components fit perfectly with each other and can
                 have different colours.
-              </p>
-              <div className="block pb-6">
+              </p> */}
+              {/* <div className="block pb-6">
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
                   Buttons
                 </span>
@@ -205,13 +207,13 @@ export default function Index() {
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
                   Typography
                 </span>
-              </div>
+              </div> */}
               <a
                 href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=nr-index"
                 target="_blank"
                 className="font-bold text-blueGray-700 hover:text-blueGray-500 ease-linear transition-all duration-150"
               >
-                View All{" "}
+                View All pitchs{" "}
                 <i className="fa fa-angle-double-right ml-1 leading-relaxed"></i>
               </a>
             </div>
@@ -220,28 +222,23 @@ export default function Index() {
               <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
                 <img
                   alt="..."
-                  src={require("assets/img/component-btn.png").default}
+                  src={require("assets/img/vamos.gif").default}
                   className="w-full align-middle rounded absolute shadow-lg max-w-100-px z-3 left-145-px -top-29-px"
                 />
                 <img
                   alt="..."
-                  src={require("assets/img/component-profile-card.png").default}
+                  src={require("assets/img/stade1.jpg").default}
                   className="w-full align-middle rounded-lg absolute shadow-lg -top-160-px left-260-px max-w-210-px"
                 />
                 <img
                   alt="..."
-                  src={require("assets/img/component-info-card.png").default}
-                  className="w-full align-middle rounded-lg absolute shadow-lg max-w-180-px -top-225-px left-40-px z-2"
+                  src={require("assets/img/stade2.jpeg").default}
+                  className="w-full align-middle rounded-lg absolute shadow-lg max-w-180-px -top-150-px left-40-px z-2"
                 />
                 <img
                   alt="..."
-                  src={require("assets/img/component-info-2.png").default}
-                  className="w-full align-middle rounded-lg absolute shadow-2xl max-w-200-px -left-50-px top-25-px"
-                />
-                <img
-                  alt="..."
-                  src={require("assets/img/component-menu.png").default}
-                  className="w-full align-middle rounded absolute shadow-lg max-w-580-px -left-20-px top-210-px"
+                  src={require("assets/img/stade3.webp").default}
+                  className="w-full align-middle rounded-lg absolute shadow-2xl max-w-200-px -left-150-px top-125-px"
                 />
                 <img
                   alt="..."
@@ -486,11 +483,7 @@ export default function Index() {
         <div className="justify-center text-center flex flex-wrap mt-24">
           <div className="w-full md:w-6/12 px-12 md:px-4">
             <h2 className="font-semibold text-4xl">Beautiful Example Pages</h2>
-            <p className="text-lg leading-relaxed mt-4 mb-4 text-blueGray-500">
-              Notus React is a completly new product built using our past
-              experience in web templates. Take the examples we made for you and
-              start playing with them.
-            </p>
+            
           </div>
         </div>
       </section>
@@ -509,7 +502,7 @@ export default function Index() {
                       <img
                         alt="..."
                         className="align-middle border-none max-w-full h-auto rounded-lg"
-                        src={require("assets/img/login.jpg").default}
+                        src={require("assets/img/loginn.PNG").default}
                       />
                     </div>
                   </Link>
@@ -524,7 +517,7 @@ export default function Index() {
                       <img
                         alt="..."
                         className="align-middle border-none max-w-full h-auto rounded-lg"
-                        src={require("assets/img/profile.jpg").default}
+                        src={require("assets/img/profilee.PNG").default}
                       />
                     </div>
                   </Link>
@@ -539,7 +532,7 @@ export default function Index() {
                       <img
                         alt="..."
                         className="align-middle border-none max-w-full h-auto rounded-lg"
-                        src={require("assets/img/landing.jpg").default}
+                        src={require("assets/img/landingg.PNG").default}
                       />
                     </div>
                   </Link>
