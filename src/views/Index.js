@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
+import ramadan from "assets/img/ramadan.jfif";
+import coupe2 from "assets/img/coupe2.jfif";
+import coupe3 from "assets/img/coupe3.jfif";
+import coupe4 from "assets/img/coupe4.jpg"; 
+import coupe5 from "assets/img/coupe5.jfif";
+import coupe6 from "assets/img/coupe6.jpg";
+
 
 export default function Index() {
   return (
@@ -23,14 +30,14 @@ The Local Football Matchmaking Platform is an innovative web/mobile application 
               </p>
               <div className="mt-12">
                 <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus?ref=nr-index"
+                  href="/auth/login"
                   target="_blank"
                   className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                 >
                   Sign Up
                 </a>
                 <a
-                  href="https://github.com/creativetimofficial/notus-react?ref=nr-index"
+                  href="/auth/register"
                   className="github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                   target="_blank"
                 >
@@ -209,11 +216,11 @@ The Local Football Matchmaking Platform is an innovative web/mobile application 
                 </span>
               </div> */}
               <a
-                href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=nr-index"
+                href="/fieldslist"
                 target="_blank"
                 className="font-bold text-blueGray-700 hover:text-blueGray-500 ease-linear transition-all duration-150"
               >
-                View All pitchs{" "}
+                View All pitchs{""}
                 <i className="fa fa-angle-double-right ml-1 leading-relaxed"></i>
               </a>
             </div>
@@ -223,7 +230,7 @@ The Local Football Matchmaking Platform is an innovative web/mobile application 
                 <img
                   alt="..."
                   src={require("assets/img/vamos.gif").default}
-                  className="w-full align-middle rounded absolute shadow-lg max-w-100-px z-3 left-145-px -top-29-px"
+                  className="w-full align-middle rounded absolute shadow-lg max-w-100-px z-3 left-195-px -top-29-px"
                 />
                 <img
                   alt="..."
@@ -242,8 +249,8 @@ The Local Football Matchmaking Platform is an innovative web/mobile application 
                 />
                 <img
                   alt="..."
-                  src={require("assets/img/component-btn-pink.png").default}
-                  className="w-full align-middle rounded absolute shadow-xl max-w-120-px left-195-px top-95-px"
+                  src={require("assets/img/stade5.jpg").default}
+                  className="w-full align-middle rounded absolute shadow-xl max-w-200-px left-260-px top-25-px"
                 />
               </div>
             </div>
@@ -254,95 +261,70 @@ The Local Football Matchmaking Platform is an innovative web/mobile application 
               <div className="justify-center flex flex-wrap relative">
                 <div className="my-4 w-full lg:w-6/12 px-4">
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/svelte/alerts/notus?ref=vtw-index"
-                    target="_blank"
-                  >
-                    <div className="bg-red-600 shadow-lg rounded-lg text-center p-8">
-                      <img
-                        alt="..."
-                        className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                        src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/svelte.jpg"
+                    href="/tournois/ramadan">
+                    <div className="bg-yellow-500 shadow-lg rounded-lg text-center p-8 mt-8">
+                      <img src={ramadan} alt="tournoi ramadan" className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
                       />
                       <p className="text-lg text-white mt-4 font-semibold">
-                        Svelte
-                      </p>
+                        Tournoi Ramadan
+                      </p>    
                     </div>
                   </a>
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=vtw-index"
-                    target="_blank"
-                  >
-                    <div className="bg-lightBlue-500 shadow-lg rounded-lg text-center p-8 mt-8">
-                      <img
-                        alt="..."
-                        className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                        src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/react.jpg"
+                    href="/tournois/ete">
+                    <div className="bg-red-500 shadow-lg rounded-lg text-center p-8 mt-8">
+                    <img src={coupe2} alt="tournoi d'ete" className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
+
                       />
                       <p className="text-lg text-white mt-4 font-semibold">
-                        ReactJS
-                      </p>
+                        Tournoi d'Été
+                      </p>    
                     </div>
                   </a>
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/notus?ref=vtw-index"
-                    target="_blank"
-                  >
-                    <div className="bg-blueGray-700 shadow-lg rounded-lg text-center p-8 mt-8">
-                      <img
-                        alt="..."
-                        className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                        src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/nextjs.jpg"
+                    href="/tournois/d'hiver">
+                    <div className="bg-orange-500 shadow-lg rounded-lg text-center p-8 mt-8">
+                    <img src={coupe3} alt="tournoi d'hiver" className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
+
                       />
                       <p className="text-lg text-white mt-4 font-semibold">
-                        NextJS
-                      </p>
+                        Tournoi d'Hiver
+                      </p>    
                     </div>
                   </a>
                 </div>
                 <div className="my-4 w-full lg:w-6/12 px-4 lg:mt-16">
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/js/alerts/notus?ref=vtw-index"
-                    target="_blank"
-                  >
-                    <div className="bg-yellow-500 shadow-lg rounded-lg text-center p-8">
-                      <img
-                        alt="..."
-                        className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                        src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png"
+                    href="/tournois/challenge">
+                    <div className="bg-lightBlue-800 shadow-lg rounded-lg text-center p-8 mt-8">
+                      <img src={coupe4} alt="tournoi challenge" className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
+
                       />
                       <p className="text-lg text-white mt-4 font-semibold">
-                        JavaScript
-                      </p>
+                        Tournoi Challenge
+                      </p>    
                     </div>
                   </a>
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/angular/alerts/notus?ref=vtw-index"
-                    target="_blank"
-                  >
-                    <div className="bg-red-700 shadow-lg rounded-lg text-center p-8 mt-8">
-                      <img
-                        alt="..."
-                        className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                        src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/angular.jpg"
+                    href="/tournois/coupe">
+                    <div className="bg-purple-500 shadow-lg rounded-lg text-center p-8 mt-8">
+                     <img src={coupe5} alt="tournoi coupe" className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
+
                       />
                       <p className="text-lg text-white mt-4 font-semibold">
-                        Angular
-                      </p>
+                        Tournoi Coupe
+                      </p>    
                     </div>
                   </a>
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/vue/alerts/notus?ref=vtw-index"
-                    target="_blank"
-                  >
-                    <div className="bg-emerald-500 shadow-lg rounded-lg text-center p-8 mt-8">
-                      <img
-                        alt="..."
-                        className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                        src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/vue.jpg"
+                    href="/tournois/veteran">
+                    <div className="bg-yellow-500 shadow-lg rounded-lg text-center p-8 mt-8">
+                    <img src={coupe6} alt="tournoi veteran" className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
+
                       />
                       <p className="text-lg text-white mt-4 font-semibold">
-                        Vue.js
-                      </p>
+                        Tournoi Vétéran
+                      </p>    
                     </div>
                   </a>
                 </div>
@@ -351,52 +333,46 @@ The Local Football Matchmaking Platform is an innovative web/mobile application 
 
             <div className="w-full md:w-4/12 px-12 md:px-4 ml-auto mr-auto mt-48">
               <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                <i className="fas fa-drafting-compass text-xl"></i>
+                <i className="fas fa-trophy text-xl"></i>
               </div>
               <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                Javascript Components
+                Tournaments
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                In order to create a great User Experience some components
-                require JavaScript. In this way you can manipulate the elements
-                on the page and give more options to your users.
+                Join our local football tournament and experience the thrill of the game!
+This competition brings together passionate teams ready to face off in a spirit of fair play and camaraderie.
+Register your team, take on the challenge, and aim for the trophy  the perfect opportunity to share your love for football and create unforgettable memories.
               </p>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                We created a set of Components that are dynamic and come to help
-                you.
+                Whether you're a player, a supporter, or just a football enthusiast, this tournament is for you.
               </p>
               <div className="block pb-6">
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Alerts
+                  Ramadan
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Dropdowns
+                  Summer
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Menus
+                  Winter
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Modals
+                  Challenge
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Navbars
+                  Cup
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Popovers
+                  Veteran
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Tabs
-                </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Tooltips
-                </span>
+                
               </div>
               <a
                 href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=nr-index"
                 target="_blank"
                 className="font-bold text-blueGray-700 hover:text-blueGray-500 ease-linear transition-all duration-150"
               >
-                View all{" "}
+                Let's Go {" "}
                 <i className="fa fa-angle-double-right ml-1 leading-relaxed"></i>
               </a>
             </div>
@@ -408,61 +384,17 @@ The Local Football Matchmaking Platform is an innovative web/mobile application 
             <div className="w-full md:w-5/12 ml-auto px-12 md:px-4">
               <div className="md:pr-12">
                 <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                  <i className="fas fa-file-alt text-xl"></i>
+                  <i className="fas fa-list-ol text-xl"></i>
                 </div>
                 <h3 className="text-3xl font-semibold">
-                  Complex Documentation
+                  Leaderboard
                 </h3>
                 <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                  This extension comes a lot of fully coded examples that help
-                  you get started faster. You can adjust the colors and also the
-                  programming language. You can change the text and images and
-                  you're good to go.
+                  Follow the official standings and see where each team ranks throughout the tournament.
+Updated after every match, the leaderboard highlights the teams with the most wins, goals, and points.
+Keep an eye on the table to track your team’s journey to the top!
                 </p>
-                <ul className="list-none mt-6">
-                  <li className="py-2">
-                    <div className="flex items-center">
-                      <div>
-                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
-                          <i className="fas fa-fingerprint"></i>
-                        </span>
-                      </div>
-                      <div>
-                        <h4 className="text-blueGray-500">
-                          Built by Developers for Developers
-                        </h4>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="py-2">
-                    <div className="flex items-center">
-                      <div>
-                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
-                          <i className="fab fa-html5"></i>
-                        </span>
-                      </div>
-                      <div>
-                        <h4 className="text-blueGray-500">
-                          Carefully crafted code for Components
-                        </h4>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="py-2">
-                    <div className="flex items-center">
-                      <div>
-                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
-                          <i className="far fa-paper-plane"></i>
-                        </span>
-                      </div>
-                      <div>
-                        <h4 className="text-blueGray-500">
-                          Dynamic Javascript Components
-                        </h4>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
+                
               </div>
             </div>
 
@@ -474,7 +406,7 @@ The Local Football Matchmaking Platform is an innovative web/mobile application 
                   transform:
                     "scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg)",
                 }}
-                src={require("assets/img/documentation.png").default}
+                src={require("assets/img/classement.png").default}
               />
             </div>
           </div>
@@ -616,12 +548,10 @@ The Local Football Matchmaking Platform is an innovative web/mobile application 
                 </span>
               </p>
               <h3 className="font-semibold text-3xl">
-                Do you love this Starter Kit?
+                Do you love this website?
               </h3>
               <p className="text-blueGray-500 text-lg leading-relaxed mt-4 mb-4">
-                Cause if you do, it can be yours now. Hit the buttons below to
-                navigate to get the Free version for your next project. Build a
-                new web app or give an old project a new look!
+                If you like this website, please give us a star on GitHub! Your support helps us continue to improve and maintain the project.
               </p>
               <div className="sm:block flex flex-col mt-10">
                 <a
@@ -629,7 +559,7 @@ The Local Football Matchmaking Platform is an innovative web/mobile application 
                   target="_blank"
                   className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-2 bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                 >
-                  Get started
+                  Let's Get Started
                 </a>
                 <a
                   href="https://github.com/creativetimofficial/notus-react?ref=nr-index"

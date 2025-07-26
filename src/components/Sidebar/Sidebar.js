@@ -252,6 +252,33 @@ export default function Sidebar() {
                   Profile Page
                 </Link>
               </li>
+              <li className="items-center">
+                <Link
+                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
+                  to="/FieldsList"
+                >
+                  <i className="fas fa-map-marked-alt text-blueGray-400 mr-2 text-sm"></i>{" "}
+                  Fields list
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
+                  to="/booking"
+                >
+                  <i className="fas fa-calendar-check text-blueGray-400 mr-2 text-sm"></i>{" "}
+                  Booking
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
+                  to="/mybooking"
+                >
+                  <i className="fas fa-clipboard-list text-blueGray-400 mr-2 text-sm"></i>{" "}
+                  My Booking
+                </Link>
+              </li>
             </ul>
 
             {/* Divider */}

@@ -108,6 +108,18 @@ const IndexDropdown = () => {
           Fields list
         </Link>
         <Link
+          to="/booking"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          Booking
+        </Link>
+        <Link
+          to="/mybooking"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+        >
+          My Booking
+        </Link>
+        <Link
           to="/profile"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
         >

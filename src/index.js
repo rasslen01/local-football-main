@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
+
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "assets/styles/tailwind.css";
 
@@ -10,12 +11,15 @@ import "assets/styles/tailwind.css";
 import Admin from "layouts/Admin.js";
 import Auth from "layouts/Auth.js";
 
+
 // views without layouts
 
 import Landing from "views/Landing.js";
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
 import FieldsList from "views/FieldsList.js";
+import Booking from "views/auth/Booking.js";
+import MyBooking from "views/auth/MyBooking"; 
 
 ReactDOM.render(
   <BrowserRouter>
@@ -27,6 +31,8 @@ ReactDOM.render(
       <Route path="/landing" exact component={Landing} />
       <Route path="/profile" exact component={Profile} />
       <Route path="/fieldslist" exact component={FieldsList} />
+      <Route path="/booking" exact component={Booking} />
+      <Route path="/mybooking" exact component={MyBooking} />
       {/* add index route */}
       <Route path="/" exact component={Index} />
       {/* add redirect for first page */}
