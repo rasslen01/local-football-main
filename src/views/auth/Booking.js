@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer";
-import ApiBooking from "service/ApiBooking";
 
 const stadiums = [
   "Stade Municipal",
