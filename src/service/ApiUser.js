@@ -1,22 +1,16 @@
-import axios from 'axios';
-const apiUrl ='http://localhost:5000/users';
+import axiosClient from './AxiosClient';
 
-export async function getallUsers() {
-  return await axios.get(`${apiUrl}/getallUsers`);
-}
+const usersApi = {
+  getAll: () => axiosClient.get('/users/getallUsers'),
+  deleteAll: () => axiosClient.delete('/users/deleteallUsers'),
+  getOrderedByAge: () => axiosClient.get('/users/getOrderAllUsersByAge'),
+  deleteById: (id) => axiosClient.delete(`/users/deleteUser/${id}`),
+  add: (data) => axiosClient.post('/users/addClient', data),
+  update: (id, data) => axiosClient.put(`/users/updateUser/${id}`, data),
+  addWithImage: (formData) =>
+    axiosClient.post('/users/addUserWithImage', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    }),
+};
 
- export async function deleteallUsers() {
-  return await axios.delete(`${apiUrl}/deleteallUsers`);   
-  }
-  export async function getOrderAllUsersByAge() {
-  return await axios.get(`${apiUrl}/getOrderAllUsersByAge`);
-  }
-  export async function deleteUser(id) {
-  return await axios.delete(`${apiUrl}/deleteUser/${id}`);
-  }
-  export async function addUser(userData) {
-  return await axios.post(`${apiUrl}/addClient`, userData);
-  }
-  export async function updateUser(id, userData) {
-    return await axios.put(`${apiUrl}/updateUser/${id}`, userData);
-  }
+export default usersApi;

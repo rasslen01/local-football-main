@@ -1,75 +1,81 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Footer from "components/Footers/Footer";
 import Navbar from "components/Navbars/AuthNavbar.js";
+import Footer from "components/Footers/Footer";
+import ApiBooking from "service/ApiBooking";
 
-const Booking = () => {
+const stadiums = [
+  "Stade Municipal",
+  "Stade de la Ville",
+  "Stade des Sports",
+  "Stade Olympique",
+  "Stade de la Plage",
+  "Stade du Parc",
+];
+
+export default function Booking() {
   const [bookingData, setBookingData] = useState({
     date: "",
     time: "",
     duration: "1h",
+    stadium: "",
   });
-    const [showStadiums, setShowStadiums] = useState(false);
-    const [stadiums] = useState([
-    "Stade Municipal",
-    "Stade de la Ville",
-    "Stade des Sports",
-    "Stade Olympique",
-    "Stade de la Plage",
-    "Stade du Parc",
-    ]);
-const history = useHistory();
+  const [showStadiums, setShowStadiums] = useState(false);
+  const history = useHistory();
 
   const handleChange = (e) => {
-    setBookingData({
-      ...bookingData,
-      [e.target.name]: e.target.value,
-    });
+    setBookingData({ ...bookingData, [e.target.name]: e.target.value });
+  };
+
+  const handleStadiumSelect = (stadium) => {
+    setBookingData({ ...bookingData, stadium });
+    setShowStadiums(false);
   };
 
   const handleSubmit = (e) => {
-  e.preventDefault();
-  alert("Réservation envoyée !");
-  console.log(bookingData);
-
-  // Redirection vers MyBooking
-  history.push("/mybooking");
-};
-
+    e.preventDefault();
+    if (!bookingData.stadium) {
+      alert("Merci de choisir un stade.");
+      return;
+    }
+    alert("Réservation envoyée !");
+    console.log(bookingData);
+    history.push("/mybooking");
+  };
 
   return (
     <>
       <Navbar transparent />
       <main>
-        <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
-          <div
-            className="absolute top-0 w-full h-full bg-center bg-cover"
-            style={{
-              backgroundImage:
-                "url(" + require("assets/img/terrain.jpg").default + ")",
-            }}
-          >
-            <span
-              id="blackOverlay"
-              className="w-full h-full absolute opacity-75 bg-black"
-            ></span>
-          </div>
+        {/* Section bannière */}
+        <div
+          className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75"
+          style={{
+            backgroundImage:
+              "url(" + require("assets/img/terrain.jpg").default + ")",
+          }}
+        >
+          <span
+            id="blackOverlay"
+            className="w-full h-full absolute opacity-75 bg-black"
+          ></span>
+
           <div className="container relative mx-auto">
             <div className="items-center flex flex-wrap">
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-5xl">
-                    Organise, Réserve, joue.
+                    Réserver un terrain
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
-                    Une plateforme dédiée aux passionnés de football local. Crée
-                    ton équipe, réserve ton terrain, affronte d'autres joueurs
-                    près de chez toi.
+                    Choisis la date, l’heure, la durée et le stade pour ta
+                    réservation.
                   </p>
                 </div>
               </div>
             </div>
           </div>
+
           <div
             className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
             style={{ transform: "translateZ(0)" }}
@@ -91,82 +97,93 @@ const history = useHistory();
           </div>
         </div>
 
-        <section className="pb-20 bg-blueGray-200 -mt-24">
+        {/* Section Formulaire */}
+        <section className="pb-20 bg-blueGray-200 -mt-14">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap">
-              <div className="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md mt-10">
-                <h2 className="text-2xl font-bold mb-4 text-center">
-                  Réserver un terrain
+            <div className="flex flex-wrap justify-center">
+              <div className="max-w-lg w-full bg-white rounded-2xl shadow-lg p-8 mt-10">
+                <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">
+                  Informations de réservation
                 </h2>
-                <form onSubmit={handleSubmit}>
-                  <label className="block mb-2">
-                    Date :
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Date */}
+                  <div>
+                    <label className="block mb-1 font-medium text-gray-700">
+                      Date :
+                    </label>
                     <input
                       type="date"
                       name="date"
                       value={bookingData.date}
                       onChange={handleChange}
-                      className="mt-1 p-2 w-full border rounded"
                       required
+                      className="p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-lightBlue-400 focus:outline-none"
                     />
-                  </label>
+                  </div>
 
-                  <label className="block mb-2">
-                    Heure :
+                  {/* Heure */}
+                  <div>
+                    <label className="block mb-1 font-medium text-gray-700">
+                      Heure :
+                    </label>
                     <input
                       type="time"
                       name="time"
                       value={bookingData.time}
                       onChange={handleChange}
-                      className="mt-1 p-2 w-full border rounded"
                       required
+                      className="p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-lightBlue-400 focus:outline-none"
                     />
-                  </label>
+                  </div>
 
-                  <label className="block mb-2">
-                    Durée :
+                  {/* Durée */}
+                  <div>
+                    <label className="block mb-1 font-medium text-gray-700">
+                      Durée :
+                    </label>
                     <select
                       name="duration"
                       value={bookingData.duration}
                       onChange={handleChange}
-                      className="mt-1 p-2 w-full border rounded"
+                      className="p-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-lightBlue-400 focus:outline-none"
                     >
                       <option value="1h">1 heure</option>
                       <option value="2h">2 heures</option>
                       <option value="3h">3 heures</option>
                     </select>
-                  </label>
-                   <div className="block mb-2">
-    <span className="block mb-1 font-semibold">Stade :</span>
-    <button
-      type="button"
-      onClick={() => setShowStadiums(!showStadiums)}
-      className="text-lightBlue-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-    >
-      {bookingData.stadium ? `Stade : ${bookingData.stadium}` : "Choisir Stade"}
-    </button>
+                  </div>
 
-    {showStadiums && (
-      <ul className="mt-2 border rounded bg-white shadow">
-        {stadiums.map((stadium) => (
-          <li
-            key={stadium}
-            className="p-2 hover:bg-blue-100 cursor-pointer"
-            onClick={() => {
-              setBookingData({ ...bookingData, stadium });
-              setShowStadiums(false);
-            }}
-          >
-            {stadium}
-          </li>
-        ))}
-      </ul>
-    )}
-  </div>
+                  {/* Stade */}
+                  <div className="relative">
+                    <label className="block mb-1 font-medium text-gray-700">
+                      Stade :
+                    </label>
+                    <button
+                      type="button"
+                      onClick={() => setShowStadiums(!showStadiums)}
+                      className="bg-lightBlue-500 hover:bg-lightBlue-600 transition text-white px-4 py-3 rounded-lg w-full text-left "
+                    >
+                      {bookingData.stadium || "Choisir un stade"}
+                    </button>
+                    {showStadiums && (
+                      <ul className="absolute z-20 mt-2 bg-white border border-gray-200 rounded-lg w-full shadow-md max-h-40 overflow-auto">
+                        {stadiums.map((stadium) => (
+                          <li
+                            key={stadium}
+                            onClick={() => handleStadiumSelect(stadium)}
+                            className="p-3 hover:bg-blue-100 cursor-pointer"
+                          >
+                            {stadium}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
 
+                  {/* Bouton */}
                   <button
                     type="submit"
-                    className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="bg-lightBlue-500 hover:bg-lightBlue-600 transition text-white font-bold py-3 rounded-lg w-full mt-6"
                   >
                     Réserver
                   </button>
@@ -179,6 +196,4 @@ const history = useHistory();
       <Footer />
     </>
   );
-};
-
-export default Booking;
+}

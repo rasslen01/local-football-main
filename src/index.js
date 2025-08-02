@@ -19,7 +19,9 @@ import Profile from "views/Profile.js";
 import Index from "views/Index.js";
 import FieldsList from "views/FieldsList.js";
 import Booking from "views/auth/Booking.js";
-import MyBooking from "views/auth/MyBooking"; 
+import MyBooking from "views/auth/MyBooking";
+import Tournament from "views/auth/Tournament.js"; 
+import MyTournaments from "views/auth/MyTournaments.js";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -33,6 +35,10 @@ ReactDOM.render(
       <Route path="/fieldslist" exact component={FieldsList} />
       <Route path="/booking" exact component={Booking} />
       <Route path="/mybooking" exact component={MyBooking} />
+      <Route path="/tournament" exact component={Tournament} />
+      <Route path="/mytournaments" exact component={MyTournaments} />
+
+      
       {/* add index route */}
       <Route path="/" exact component={Index} />
       {/* add redirect for first page */}

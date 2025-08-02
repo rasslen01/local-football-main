@@ -15,6 +15,8 @@ import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
 import TableUsers from "views/admin/TablesUsers";
+import TableStade from "views/admin/TablesStade";
+import TableTournoi from "views/admin/TablesTournoi";
 
 
 export default function Admin() {
@@ -32,6 +34,11 @@ export default function Admin() {
             <Route path="/admin/settings" exact component={Settings} />
             <Route path="/admin/tables" exact component={Tables} />
             <Route path="/admin/TableUsers" exact component={TableUsers} />
+            <Route path="/admin/TableStade" exact component={TableStade} />
+            <Route path="/admin/TableTournoi" exact component={TableTournoi} />
+            
+            
+            
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
           <FooterAdmin />

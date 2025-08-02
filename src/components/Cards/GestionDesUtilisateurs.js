@@ -1,14 +1,16 @@
 import React , {useCallback,useEffect,useState} from "react";
 import PropTypes from "prop-types";
-
+import ApiUser from "service/ApiUser"
 // components
 
 import TableDropdown from "components/Dropdowns/TableDropdown.js";
-import {getallUsers,addUser} from '../../service/ApiUser'
+
+ 
 
 export default function GestionDesUtilisateurs({ color }) {
   const [users, setUsers] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+
     const [newUser , setNewUser] = useState({
       firstName: '', lastName: '', email: '', password: '', confirmPassword: '', roleType: '', profilePicture: ''
     });
@@ -19,15 +21,17 @@ export default function GestionDesUtilisateurs({ color }) {
     }
 
   const getUsers = useCallback(async () => {
-    await getallUsers().then((response) => {
-      console.log(response.data.userList);
+    try{
+    const response = await ApiUser.getAll()
       setUsers(response.data.userList);
-    });
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
   }, []);
   useEffect(() => {getUsers();}, [getUsers]);
   const handelAddNewUser = async (newUser) => {
     try {
-      await addUser(newUser);
+      await ApiUser.add(newUser);
       setIsModalOpen(false);
       getUsers(); // Refresh the user list after adding a new user
     } catch (error) {
@@ -65,13 +69,15 @@ export default function GestionDesUtilisateurs({ color }) {
 {isModalOpen && (
   <div>
     <label
-                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    className=" block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
                     firstName
                   </label>
                   <input
                     type="text"
+                    name="firstName"
+                    value={newUser.firstName}
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
                     onChange={handleInputChange}
                   />
@@ -83,6 +89,8 @@ export default function GestionDesUtilisateurs({ color }) {
                   </label>
                   <input
                     type="text"
+                    name="lastName"
+                    value={newUser.lastName}
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
                    onChange={handleInputChange}
                   />
@@ -94,6 +102,8 @@ export default function GestionDesUtilisateurs({ color }) {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    value={newUser.email}
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
                     onChange={handleInputChange}
                   />
@@ -105,6 +115,8 @@ export default function GestionDesUtilisateurs({ color }) {
                   </label>
                   <input
                     type="password"
+                    name="password"
+                    value={newUser.password}
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
                     onChange={handleInputChange}
                   />
@@ -116,6 +128,8 @@ export default function GestionDesUtilisateurs({ color }) {
                   </label>
                   <input
                     type="password"
+                    name="confirmPassword"
+                    value={newUser.confirmPassword}
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
                    onChange={handleInputChange}
                   />
@@ -127,6 +141,8 @@ export default function GestionDesUtilisateurs({ color }) {
                   </label>
                   <input
                     type="text"
+                    name="roleType"
+                    value={newUser.roleType}
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
                    onChange={handleInputChange}
                   />
@@ -138,15 +154,19 @@ export default function GestionDesUtilisateurs({ color }) {
                   </label>
                   <input
                     type="file"
+                    name="profilePicture"
+                      
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/4 ease-linear transition-all duration-150"
                    onChange={handleInputChange}
                   />
                   <button className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
   
-  Add User
+
 
   onClick={() => handelAddNewUser(newUser)}
   >
+  Add User
+    
 </button>
 <button className="ml-2 bg-red-400 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
   onClick={() =>{
